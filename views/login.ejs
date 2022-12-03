@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+</head>
+<body>
+    <%- include('partials/navbar')%>
+        <!-- <section class="vh-110 bg-image"
+            style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');"> -->
+        <div class="mask d-flex align-items-center mt-5  gradient-custom-3" style="height: 689px; ">
+            <div class="container h-100 my-5">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5 ">
+                                <h2 class="text-uppercase text-center mb-5">Login in to Your Account</h2>
+  <%- include('flashes/flash')%>
+                                
+                                <form action="/login" method="post" id="myForm" novalidate>
+                                    <input type="text" value="<%-guestCart%>" name="guestCart" hidden>
+                                    <div class="form-outline mb-4">
+                                        <input type="email" id="email" class="form-control form-control-lg"
+                                            name="email"  />
+                                        <label class="form-label" for="email">Your Email</label><br>
+                                    </div>                                  
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="password" class="form-control form-control-lg"
+                                            name="password" />
+                                        <label class="form-label" for="password">Password</label><br>                                       
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit"
+                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
+                                    </div>
+                                </form>
+                                    
+                                   
+                                    <p class="text-center text-muted mt-5 mb-0">Forgot Password?   <form action="/login/otplogin">
+                                        <%if(guestCart){%>
+                                            <input type="text" name="guestCart" value="true" hidden>
+                                          <%}%> 
+                                        
+                                       <div class="d-flex justify-content-center mt-1">
+                                        <button type="sumbit" class="btn btn-sm btn-outline-success">Login with Otp</button>
+                                    </div>
+                                    </form>
+                                    <!-- <a
+                                        href="login/otplogin" class="fw-bold text-body"><u>Login with OTP</u></a> -->
+                                    </p>
+                                    <p class="text-center text-muted mt-5 mb-0">Create an account? <a
+                                            href="/register" class="fw-bold text-body"><u>Register here</u></a></p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    <!-- </section> -->
+
+</body>
+
+</html>

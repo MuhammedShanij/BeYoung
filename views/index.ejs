@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home Page</title>
+  <link rel='stylesheet' href='/stylesheets/category.css' />
+  </head>
+  
+
+<style>
+  /* === BASE HEADING === */ 
+
+ .twelve h1 {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: #080808;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+
+
+.twelve h1 {
+  font-size:26px; font-weight:700;  letter-spacing:1px; text-transform:uppercase; width:160px; text-align:center; margin:auto; white-space:nowrap; padding-bottom:13px;
+}
+.twelve h1:before {
+    background-color: #c50000;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 75px;
+    margin-bottom: 5px;
+}
+.twelve h1:after {
+    background-color: #c50000;
+    content: '';
+    display: block;
+  position:absolute; right:0; bottom:0;
+    height: 3px;
+    width: 75px;
+    margin-bottom: 0.25em;
+}
+
+
+
+/* ------- Helper Styles -------------*/
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* body {
+  background: #eee;
+} */
+.heading {
+  position: relative;
+  /* background: #f8f8f8; */
+  width: 90%;
+  max-width: 500px;
+  padding: 2em;
+  margin: 1.5em auto;
+  /* border: 3px solid rgba(0, 0, 0, 0.08); */
+}
+
+.twelve h1:before,
+.twelve h1:after {
+  background-color: #c50000;
+}
+.pos1{
+    height: 350px;
+    width: 350px;
+    /* background-image: url(https://images.pexels.com/photos/772513/pexels-photo-772513.png?auto=compress&cs=tinysrgb&dpr=1&w=500); */
+    background-size: 350px;
+    background-position: center;
+    transition: .5s;
+}
+
+.cattt.card{
+   margin: 40px;
+    width: 350px;
+    
+    background:linear-gradient(150deg,#469dba,#f1e2b1);
+    display: grid;
+    justify-content: center;
+    height: 350px;
+    /* border: solid; */
+    border-radius: 200px !important;
+    text-align: center;
+    overflow: hidden;
+    transition: .5s;
+}
+.card>img{
+     width: 350px;
+}
+.abv{
+    margin-top: 40%;
+    padding: 30px;
+    font-size: 25px;
+    font-family: nyala;
+    font-weight: bolder;
+    color: #442b41;
+    background: rgba(255,255,255,.5);
+
+}
+.card>h2{
+    text-align: center;
+    font-family: Gabriola;
+    color: #442b41;
+    font-size: 30px;
+}
+.pos1:hover{
+    background-size: 400px;
+}
+.pos2:hover{
+    background-size: 400px;
+}
+.pos3:hover{
+    background-size: 400px;
+}
+.badges{
+  background-color: rgb(255, 0, 0);
+  height: 25px;
+  width: 180px;
+right: 0px;
+  position: absolute;
+  
+}
+
+</style>
+<body>
+  <%- include('partials/navbar')%>
+<%- include('flashes/flash')%>
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="<%-banners[0].image.url%>" class="d-block " style="width:100%" height="600px">
+        <div class="carousel-caption d-none d-md-block bg-light ">
+          <h5 class="text-dark"><%-banners[0].name%>  </h5>
+          <p class="text-dark"><%-banners[0].description%></p>
+          <button onclick="bannerURL('<%-banners[0].category%>')" class="btn-sm btn btn-primary">CHECKOUT PRODUCTS</button>
+        </div>
+      </div>
+      <% for(let i=1;i< banners.length;i++){%>
+
+       <div class="carousel-item">
+        <img src="<%-banners[i].image.url%>" class="d-block" style="width:100%" height="600px" >
+        <div class="carousel-caption d-none d-md-block bg-light">
+          
+            <h5 class="text-dark"><%-banners[i].name%></h5>
+            <p class="text-dark"><%-banners[i].description%></p>
+            <button onclick="bannerURL('<%-banners[i].category%>')" class="btn-sm btn btn-primary">CHECKOUT PRODUCTS</button>
+          
+       
+        </div>
+      </div>
+      <%}%>
+
+   
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="twelve heading">
+    <h1>Categories</h1>
+  </div>
+  <section class="m-5 mb-0 bg-light">
+    <div class="container-fluid text-center">
+      <!-- <h4 class="py-4 text-dark"><strong>Categories</strong></h4> -->
+      <div class="row d-flex justify-content-center">
+        <% for(let c of categories){%>
+          
+
+     
+        <div class="col-lg-4 col-md-6 mb-4 ">
+          <a href="/category/<%-c._id%>">
+              <div class="card mx-auto mt-5 cattt">
+               
+                  <div class="pos1" style="background-image:url('<%-c.image.url%>') ;">
+                    
+                    <div class="abv abv1"><%-c.name%>
+                      <%if(c.offer.discount){%>
+                        -<%-c.offer.discount%>%OFF
+                        <%}%></div>
+
+                  
+                  </div>
+              </div>
+            </a>
+            </div>
+           
+            <%}%>
+          </div>
+        </div>
+
+  </section>
+ 
+ 
+  <!-- <div class="col-md-10 offset-md-1 bg-danger d-flex justify-content-between">
+  <% for(let c of categories){%>
+
+              <div>
+                <a href="/category/<%-c._id%>"><img src="<%-c.image.url%>" alt="" style="width:100px; height:100px;"><br> <%-c.name%></a>
+              </div>
+              
+    <%}%>
+
+    
+  </div> -->
+
+  <!-- <section >
+    
+  <div class="text-center container py-5">
+    <h4 class="mt-4 mb-5"><strong>Bestsellers</strong></h4>
+
+    
+      
+
+    <div class="row">
+  <% for(let p of product){%>
+
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="card">
+          <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+            <img src="<%-p.images[0].url%>" style=" height:300px"
+              class="w-100" />
+            <a href="#!">
+              <div class="mask">
+                <div class="d-flex justify-content-start align-items-end h-100">
+                  <h5>
+                    <span class="badge bg-success ms-2">Eco</span><span
+                        
+                        class="badge bg-danger ms-2">-<%-p.discount%>%</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="hover-overlay">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <a href="" class="text-reset">
+                        <%-p.productname%>
+                        <h5 class="card-title mb-3"></h5>
+            </a>
+            <a href="" class="text-reset">
+              <p><%-p.categoryInfo.name%></p>
+            </a>
+            <h6 class="mb-3">
+              <s>&#8377; <%-p.price%></s><strong class="ms-2 text-danger">&#8377; <%-p.actualprice%></strong>
+            </h6>
+            <a href="/productview/<%-p._id%>"><button class="btn btn-secondary">View Details</button></a>
+            <%if(user){%>
+
+            <form action="/wishlist/<%-user._id%>/<%-p._id%>" method="post">   
+              <button
+             class="btn btn-danger text-uppercase mr-2 px-4" type="submit">Add to wishlist</button> <i
+             class="fa fa-heart text-muted"></i> <i 
+             class="fa fa-share-alt text-muted"></i>  
+         </form>
+         <%}else{%>
+          <a href="/loginneeded">
+              <button
+              class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> <i
+              class="fa fa-heart text-muted"></i> <i
+              class="fa fa-share-alt text-muted"></i> 
+          </a>                                        
+          <%}%> 
+          </div>
+        </div>
+      </div>
+
+    <%}%>
+      
+ 
+    
+
+
+    
+      
+</section>   -->
+
+
+  
+
+  
+    <!-- <div class="col-md-3">
+      
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXMlMjBuaWtlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="" />
+        <div class="card-body">
+          <div class="row">
+            <div class="card-title">
+              <h4>Nike Sneaker</h4>
+              <h3>$120</h3>
+            </div>
+            <div class="view-btn">
+              <a href="">View Details</a>
+            </div>
+          </div>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
+            dignissimos.
+          </p>
+          <div class="btn-group">
+            <div class="btn">
+              <a href="">Buy Now</a>
+            </div>
+            <a href=""> Cancel</a>
+          </div>
+        </div>
+      </div>
+      
+    </div> -->
+   
+    
+    
+    
+
+    <div class="twelve heading">
+      <h1>New Arrivals</h1>
+    </div>
+    <div class="container page-wrapper ">
+      <div class="page-inner">
+        <div class="row">
+  <% for(let p of product){%>
+
+  
+        <div class="col-12 col-sm-8 col-md-6 col-lg-3 py-3 mb-5">
+          
+          <div class="card">
+            <div class="d-flex justify-content-center">
+              <%if(p.stock==0){%>
+                <div class="badge badges"><h6>Currently Unavailable</h6></div>
+                  <%}%>
+            <img class="card-img" src="<%-p.images[0].url%>" alt="Vans" style="width: 155px; height:200px">
+
+            </div>
+            <div class="card-img-overlay d-flex justify-content-end">
+                <%if(user){%> 
+
+
+
+                <%if(p.inWishlist){%>
+              <a  onclick="confirmation('F','<%-p._id%>')" class="card-link text-danger like">
+
+                  <i class="fas fa-heart"></i></a>
+                  <%}else{%>
+              <a onclick="confirmation('T','<%-p._id%>')" class="card-link text-danger like">
+
+                    <i class="fa-regular fa-heart"></i></a>
+                    
+
+                  <%}%>
+                  <%}else{%>
+                    <i class="fa-regular fa-heart"></i>
+
+                    <%}%> 
+              
+            </div>
+            <div class="card-body">
+              <!-- <h4 class="card-title"><%-p.categoryInfo.name%></h4> -->
+              <h6 class="card-subtitle mb-2 text-muted"><span class="p-company fw-bold text-danger"><%-p.brand%></span>
+              </h6>
+              <p class="card-text">
+               
+                <%-p.productname%> </p>
+                <div class="fw-bold">
+                  <%if(p.categoryInfo.offer!=null){%>
+                    <%if(p.discount>p.categoryInfo.offer.discount){%>
+                      <%-p.discount%>%Off
+                      <%}else{%>
+                        <%-p.categoryInfo.offer.discount%>%Off
+                      <%}%> 
+
+                      <%}else{%>
+                        <%-p.discount%>%Off
+                      <%}%>      
+                </div>
+                
+              <!-- <div class="options d-flex flex-fill">
+                 <select class="custom-select mr-1">
+                    <option selected>Color</option>
+                    <option value="1">Green</option>
+                    <option value="2">Blue</option>
+                    <option value="3">Red</option>
+                </select>
+                <select class="custom-select ml-1">
+                    <option selected>Size</option>
+                    <option value="1">41</option>
+                    <option value="2">42</option>
+                    <option value="3">43</option>
+                </select>
+              </div> -->
+              <div class="buy d-flex justify-content-between align-items-center">
+                <div class="price text-success"><h6 class="mt-4">
+                 
+
+                  
+                  &#8377;<%-p.price%>/-
+                  </h5></div>
+                
+                 <a href="/productview/<%-p._id%>" class="btn btn-danger mt-3" style="z-index: 20">View Details</a>
+              </div>
+             
+             
+            </div>
+          </div>
+          
+        </div>
+     
+
+      
+      
+  
+
+          <!-- <div class="el-wrapper col-lg-4 col-md-6">
+            <div class="box-up">
+              <img class="img" src="<%-p.images[0].url%>"alt="" style=" max-width: 100%;
+              max-height:100%;">
+              <div class="img-info">
+                <div class="info-inner">
+                  <span class="p-company"><%-p.categoryInfo.name%></span>
+                  <span class="p-company fw-bold text-danger"><%-p.brand%></span>
+
+                </div>
+
+                <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
+            
+                <div class="a-size">
+                  <span class="p-company"><%-p.productname%></span>
+
+                 
+                  
+                  <div>Available sizes : <span class="size">S , M , L , XL</span></div>
+                  <div class="fw-bold size"><%-p.discount%>% Off</div>
+                  
+                  
+                </div> 
+              </div>
+            </div>
+    
+            <div class="box-down">
+              <div class="h-bg">
+                <div class="h-bg-inner"></div>
+              </div>
+    
+              <a class="cart" href="/productview/<%-p._id%>">
+                <span class="price"><s>&#8377; <%-p.price%></s><strong class="ms-2 text-danger">&#8377; <%-p.actualprice%></strong>
+                  
+                  <%if(p.inWishlist){%>
+                    <i class="fa-solid fa-heart" style="color: #ff0000;"></i>
+                    <%}else{%>
+                      <i class="fa-regular fa-heart"></i>
+                    <%}%> </span>
+                <span class="add-to-cart">
+                  <span class="txt">
+                    View Details
+              </a>
+            </div>
+          </div> -->
+    <%}%>
+
+              </div>
+      </div>
+    </div>
+    <%- include('./partials/footer')%>
+    
+    <script>
+        function confirmation(R,proId){
+                if(R=='T'){
+            sessionStorage.setItem("addToWishlist", "true");
+            addToWishlist(proId)
+                } 
+            if(R=='F'){
+            sessionStorage.setItem("removedFromWishlist", "true");
+            deleteProduct(proId)
+            }
+
+            }
+            function myFunction(msg) {
+            alertify.success(msg);
+          }
+          window.onload = function () {
+            var addToWishlist = sessionStorage.getItem("addToWishlist");
+            var removedFromWishlist = sessionStorage.getItem("removedFromWishlist");
+
+            
+                    
+            if (addToWishlist) {
+              sessionStorage.removeItem("addToWishlist");
+              myFunction('Added to your Wishlist');
+            }
+            if (removedFromWishlist) {
+              sessionStorage.removeItem("removedFromWishlist");
+              myFunction('Removed from your Wishlist');
+            }
+           
+          
+          }
+          function addToWishlist(productId) {
+          $.ajax({
+            url: '/addToWishlist',
+            data: {
+              proId: productId     
+            },
+            method: 'patch',
+            success: (response) => {
+              
+                document.location.reload();
+            }
+          })
+        }
+        function deleteProduct(productId) {
+          $.ajax({
+            url: '/removeFromWishlist',
+            data: {
+              id: productId
+            },
+            method: 'patch',
+            success: (response) => {
+                document.location.reload();       
+            }
+          })
+        }
+        function bannerURL(id){
+          location.href=`/category/${id}`
+        }
+        
+    </script>
+   
+   </body>
+   
+</html>
