@@ -214,146 +214,25 @@ right: 0px;
   </section>
  
  
-  <!-- <div class="col-md-10 offset-md-1 bg-danger d-flex justify-content-between">
-  <% for(let c of categories){%>
-
-              <div>
-                <a href="/category/<%-c._id%>"><img src="<%-c.image.url%>" alt="" style="width:100px; height:100px;"><br> <%-c.name%></a>
-              </div>
-              
-    <%}%>
-
-    
-  </div> -->
-
-  <!-- <section >
-    
-  <div class="text-center container py-5">
-    <h4 class="mt-4 mb-5"><strong>Bestsellers</strong></h4>
-
-    
-      
-
-    <div class="row">
-  <% for(let p of product){%>
-
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-        <div class="card">
-          <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-            <img src="<%-p.images[0].url%>" style=" height:300px"
-              class="w-100" />
-            <a href="#!">
-              <div class="mask">
-                <div class="d-flex justify-content-start align-items-end h-100">
-                  <h5>
-                    <span class="badge bg-success ms-2">Eco</span><span
-                        
-                        class="badge bg-danger ms-2">-<%-p.discount%>%</span>
-                  </h5>
-                </div>
-              </div>
-              <div class="hover-overlay">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </div>
-            </a>
-          </div>
-          <div class="card-body">
-            <a href="" class="text-reset">
-                        <%-p.productname%>
-                        <h5 class="card-title mb-3"></h5>
-            </a>
-            <a href="" class="text-reset">
-              <p><%-p.categoryInfo.name%></p>
-            </a>
-            <h6 class="mb-3">
-              <s>&#8377; <%-p.price%></s><strong class="ms-2 text-danger">&#8377; <%-p.actualprice%></strong>
-            </h6>
-            <a href="/productview/<%-p._id%>"><button class="btn btn-secondary">View Details</button></a>
-            <%if(user){%>
-
-            <form action="/wishlist/<%-user._id%>/<%-p._id%>" method="post">   
-              <button
-             class="btn btn-danger text-uppercase mr-2 px-4" type="submit">Add to wishlist</button> <i
-             class="fa fa-heart text-muted"></i> <i 
-             class="fa fa-share-alt text-muted"></i>  
-         </form>
-         <%}else{%>
-          <a href="/loginneeded">
-              <button
-              class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> <i
-              class="fa fa-heart text-muted"></i> <i
-              class="fa fa-share-alt text-muted"></i> 
-          </a>                                        
-          <%}%> 
-          </div>
-        </div>
-      </div>
-
-    <%}%>
-      
  
-    
-
-
-    
-      
-</section>   -->
-
-
-  
-
-  
-    <!-- <div class="col-md-3">
-      
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXMlMjBuaWtlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="" />
-        <div class="card-body">
-          <div class="row">
-            <div class="card-title">
-              <h4>Nike Sneaker</h4>
-              <h3>$120</h3>
-            </div>
-            <div class="view-btn">
-              <a href="">View Details</a>
-            </div>
-          </div>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
-            dignissimos.
-          </p>
-          <div class="btn-group">
-            <div class="btn">
-              <a href="">Buy Now</a>
-            </div>
-            <a href=""> Cancel</a>
-          </div>
-        </div>
-      </div>
-      
-    </div> -->
-   
-    
-    
-    
-
     <div class="twelve heading">
       <h1>New Arrivals</h1>
     </div>
     <div class="container page-wrapper ">
       <div class="page-inner">
         <div class="row">
-  <% for(let p of product){%>
+          
+  <% for(var i=0; i< limit;i++){%>
 
   
         <div class="col-12 col-sm-8 col-md-6 col-lg-3 py-3 mb-5">
           
           <div class="card">
             <div class="d-flex justify-content-center">
-              <%if(p.stock==0){%>
+              <%if(product[(product.length)-(i+1)].stock==0){%>
                 <div class="badge badges"><h6>Currently Unavailable</h6></div>
                   <%}%>
-            <img class="card-img" src="<%-p.images[0].url%>" alt="Vans" style="width: 155px; height:200px">
+            <img class="card-img" src="<%-product[(product.length)-(i+1)].images[0].url%>" alt="Vans" style="width: 155px; height:200px">
 
             </div>
             <div class="card-img-overlay d-flex justify-content-end">
@@ -361,12 +240,12 @@ right: 0px;
 
 
 
-                <%if(p.inWishlist){%>
-              <a  onclick="confirmation('F','<%-p._id%>')" class="card-link text-danger like">
+                <%if(product[(product.length)-(i+1)].inWishlist){%>
+              <a  onclick="confirmation('F','<%-product[(product.length)-(i+1)]._id%>')" class="card-link text-danger like">
 
                   <i class="fas fa-heart"></i></a>
                   <%}else{%>
-              <a onclick="confirmation('T','<%-p._id%>')" class="card-link text-danger like">
+              <a onclick="confirmation('T','<%-product[(product.length)-(i+1)]._id%>')" class="card-link text-danger like">
 
                     <i class="fa-regular fa-heart"></i></a>
                     
@@ -379,22 +258,22 @@ right: 0px;
               
             </div>
             <div class="card-body">
-              <!-- <h4 class="card-title"><%-p.categoryInfo.name%></h4> -->
-              <h6 class="card-subtitle mb-2 text-muted"><span class="p-company fw-bold text-danger"><%-p.brand%></span>
+              <!-- <h4 class="card-title"><%-product[(product.length)-(i+1)].categoryInfo.name%></h4> -->
+              <h6 class="card-subtitle mb-2 text-muted"><span class="p-company fw-bold text-danger"><%-product[(product.length)-(i+1)].brand%></span>
               </h6>
               <p class="card-text">
                
-                <%-p.productname%> </p>
+                <%-product[(product.length)-(i+1)].productname%> </p>
                 <div class="fw-bold">
-                  <%if(p.categoryInfo.offer!=null){%>
-                    <%if(p.discount>p.categoryInfo.offer.discount){%>
-                      <%-p.discount%>%Off
+                  <%if(product[(product.length)-(i+1)].categoryInfo.offer!=null){%>
+                    <%if(product[(product.length)-(i+1)].discount>product[(product.length)-(i+1)].categoryInfo.offer.discount){%>
+                      <%-product[(product.length)-(i+1)].discount%>%Off
                       <%}else{%>
-                        <%-p.categoryInfo.offer.discount%>%Off
+                        <%-product[(product.length)-(i+1)].categoryInfo.offer.discount%>%Off
                       <%}%> 
 
                       <%}else{%>
-                        <%-p.discount%>%Off
+                        <%-product[(product.length)-(i+1)].discount%>%Off
                       <%}%>      
                 </div>
                 
@@ -417,10 +296,10 @@ right: 0px;
                  
 
                   
-                  &#8377;<%-p.price%>/-
+                  &#8377;<%-product[(product.length)-(i+1)].price%>/- 
                   </h5></div>
                 
-                 <a href="/productview/<%-p._id%>" class="btn btn-danger mt-3" style="z-index: 20">View Details</a>
+                 <a href="/productview/<%-product[(product.length)-(i+1)]._id%>" class="btn btn-danger mt-3" style="z-index: 20">View Details</a>
               </div>
              
              
@@ -429,56 +308,6 @@ right: 0px;
           
         </div>
      
-
-      
-      
-  
-
-          <!-- <div class="el-wrapper col-lg-4 col-md-6">
-            <div class="box-up">
-              <img class="img" src="<%-p.images[0].url%>"alt="" style=" max-width: 100%;
-              max-height:100%;">
-              <div class="img-info">
-                <div class="info-inner">
-                  <span class="p-company"><%-p.categoryInfo.name%></span>
-                  <span class="p-company fw-bold text-danger"><%-p.brand%></span>
-
-                </div>
-
-                <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
-            
-                <div class="a-size">
-                  <span class="p-company"><%-p.productname%></span>
-
-                 
-                  
-                  <div>Available sizes : <span class="size">S , M , L , XL</span></div>
-                  <div class="fw-bold size"><%-p.discount%>% Off</div>
-                  
-                  
-                </div> 
-              </div>
-            </div>
-    
-            <div class="box-down">
-              <div class="h-bg">
-                <div class="h-bg-inner"></div>
-              </div>
-    
-              <a class="cart" href="/productview/<%-p._id%>">
-                <span class="price"><s>&#8377; <%-p.price%></s><strong class="ms-2 text-danger">&#8377; <%-p.actualprice%></strong>
-                  
-                  <%if(p.inWishlist){%>
-                    <i class="fa-solid fa-heart" style="color: #ff0000;"></i>
-                    <%}else{%>
-                      <i class="fa-regular fa-heart"></i>
-                    <%}%> </span>
-                <span class="add-to-cart">
-                  <span class="txt">
-                    View Details
-              </a>
-            </div>
-          </div> -->
     <%}%>
 
               </div>

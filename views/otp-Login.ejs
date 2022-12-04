@@ -101,39 +101,16 @@
 
 <!--  Request me for a signup form or any type of help  -->
 <div class="login-form">    
-    <form action="/login" method="post">
+    <form action="/login/otplogin" method="post">
 		<div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
-    	<h4 class="modal-title">Login to Your Account</h4>
-        <%- include('flashes/flash')%>
-
-        
+    	<h4 class="modal-title">Login in With OTP</h4>
+        <%- include('flashes/flash')%>  
         <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email ID" name="email" required="required">
+            <input type="number" class="form-control" placeholder="Your Mobile No" name="phno" required="required">
         </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" name="password" required="required">
-        </div>
-
-
-      
-
-
-        <div class="form-group small clearfix">
-            <label class="checkbox-inline"><input type="checkbox"> Remember me</label>
-            <a href="#" class="forgot-link">Forgot Password?</a>
-        </div> 
         <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">              
     </form>			
-    <form action="/login/otplogin">
-        <%if(guestCart){%>
-            <input type="text" name="guestCart" value="true" hidden>
-          <%}%> 
-        
-       <div class="d-flex justify-content-end">
-        <input type="submit" class="btn-primary" value="Login with OTP">              
-
-    </div>
-    </form>
+   
     <div class="text-center small">Don't have an account? <a href="/register">Sign up</a></div>
 </div>
 

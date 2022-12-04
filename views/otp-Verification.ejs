@@ -8,18 +8,20 @@
 </head>
 <body>
     <%- include('partials/navbar')%>
-    <section class=" d-flex  align-items-center" style="height: 450px;">
-    <div class="col-md-4 offset-md-4">
+    <section class=" d-flex  align-items-center   " style="height: 450px;">
+    <div class="col-md-4 offset-md-4 card p-5">
+      <h5 class="text-danger fw-bold">Please enter the one time password
+        to verify your account.</h5>
+      <h6 class="fw-bold">
+A code has been sent to <div class="text-danger inline-block"><%-phno%></div>
+
+      </h6>
         <form action="/login/otplogin/verification" method="post">
 
   <%- include('flashes/flash')%>
        
+          <input type="number" class="form-control" id="phno" name="phno" value="<%-phno%>" hidden>
         <div class="mb-3">
-          <label for="phno" class="form-label">Enter Your Mobile No</label>
-          <input type="number" class="form-control" id="phno" name="phno" value="<%-phno%>">
-        </div>
-        <div class="mb-3">
-            <label for="otp" class="form-label">Enter Your Code</label>
             <input type="number" class="form-control" id="otp" name="otp">
           </div>
         <input type="text" value="<%-guestCart%>" name="guestCart" hidden>
@@ -34,7 +36,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="text-center">
-                Not received your code? <button type="submit" class="btn" id="btnCounter" disabled>Resend code</button>
+                Not received your code?<br> <button type="submit" class="btn" id="btnCounter" disabled>Resend code</button><br>
                 <div class="otp-countdown"  id="count">05:00</div>
                 </div>
             </div>
@@ -86,6 +88,5 @@ var timer = null;  // For referencing the timer
   }
 }());
 </script>
-<%- include('./partials/footer')%>
 
 </html>

@@ -35,13 +35,13 @@
                <div>
                     
 
-                      <span class="ms-5 text-dark fw-bold"><%-category.name%> - <%-product.length%> items   </span>
+                      <span class="ms-5 text-dark fw-bold"><%-category.name%> - <%-product.length%> items <% if(category.offer.discount){%>
+                       (<%-category.offer.discount%>% Off)
+                      <%}%>  </span>
                       
               </div>
               <div>
-                <p class="text-dark fw-bold"><% if(category.offer.discount){%>
-                  <%-category.offer.discount%>% OFF
-                <%}%><p>
+                
               </div>
               <div>
                 <div class="input-group">

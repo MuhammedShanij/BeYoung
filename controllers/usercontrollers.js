@@ -105,7 +105,7 @@ module.exports = {
       if (req.query) {
         guestCart = req.query.guestCart;
       }
-      res.render("otplogin", { user: false, guestCart });
+      res.render("otp-Login", { user: false, guestCart });
     } catch  {
       res.redirect("/error");
     }
@@ -141,7 +141,7 @@ module.exports = {
   },
   otpverification: function (req, res, next) {
     try {
-      res.render("otplogin-2", { user: false, phno: null });
+      res.render("otp-Verification", { user: false, phno: null });
     } catch  {
       res.redirect("/error");
     }
@@ -199,6 +199,7 @@ module.exports = {
     try {
       let user = req.session.user;
       let cartCount = 0;
+      let limit;
       if (user) {
         cartCount = await carthelper.getcartCount(user._id);
       }
@@ -214,9 +215,14 @@ module.exports = {
 
               await userhelper.allInWishlist(userdetails, product);
             }
+            if(product.length>12)
+            limit=12
+            else
+            limit=product.length
            
             res.render("index", {
               product,
+              limit,
               user,
               categories,
               cartCount,
