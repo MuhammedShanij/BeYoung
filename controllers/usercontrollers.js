@@ -129,7 +129,7 @@ module.exports = {
               channel: "sms",
             })
             .then((data) => {
-              res.render("otplogin-2", { phno: req.body.phno, user: false });
+              res.render("otp-Verification", { phno: req.body.phno, user: false });
             })
             .catch((err) => {
             });
