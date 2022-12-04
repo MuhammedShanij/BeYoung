@@ -1036,69 +1036,69 @@ module.exports = {
           returnAvailableDate.getDate();
       }
 
-      for (p of order.products) {
-        p.orderedDate =
-          p.orderedDate.toLocaleString("default", { month: "short" }) +
-          " " +
-          p.orderedDate.getDate();
-        p.confirmedDate =
-          p.confirmedDate?.toLocaleString("default", { month: "short" }) +
-          " " +
-          p.confirmedDate?.getDate();
-        p.deliveryDate =
-          p.deliveryDate?.toLocaleString("default", { month: "short" }) +
-          " " +
-          p.deliveryDate?.getDate();
-        p.shippedDate =
-          p.shippedDate?.toLocaleString("default", { month: "short" }) +
-          " " +
-          p.shippedDate?.getDate();
-        p.outfordeliveryDate =
-          p.outfordeliveryDate?.toLocaleString("default", { month: "short" }) +
-          " " +
-          p.outfordeliveryDate?.getDate();
-        p.deliveredDate =
-          p.deliveredDate?.toLocaleString("default", { month: "short" }) +
-          " " +
-          p.deliveredDate?.getDate();
-        p.cancelledDate =
-          p.cancelledDate?.toLocaleString("default", { month: "short" }) +
-          " " +
-          p.cancelledDate?.getDate();
-        p.cancelledbyadminDate =
-          p.cancelledbyadminDate?.toLocaleString("default", {
-            month: "short",
-          }) +
-          " " +
-          p.cancelledbyadminDate?.getDate();
+      // for (p of order.products) {
+      //   p.orderedDate =
+      //     p.orderedDate.toLocaleString("default", { month: "short" }) +
+      //     " " +
+      //     p.orderedDate.getDate();
+      //   p.confirmedDate =
+      //     p.confirmedDate?.toLocaleString("default", { month: "short" }) +
+      //     " " +
+      //     p.confirmedDate?.getDate();
+      //   p.deliveryDate =
+      //     p.deliveryDate?.toLocaleString("default", { month: "short" }) +
+      //     " " +
+      //     p.deliveryDate?.getDate();
+      //   p.shippedDate =
+      //     p.shippedDate?.toLocaleString("default", { month: "short" }) +
+      //     " " +
+      //     p.shippedDate?.getDate();
+      //   p.outfordeliveryDate =
+      //     p.outfordeliveryDate?.toLocaleString("default", { month: "short" }) +
+      //     " " +
+      //     p.outfordeliveryDate?.getDate();
+      //   p.deliveredDate =
+      //     p.deliveredDate?.toLocaleString("default", { month: "short" }) +
+      //     " " +
+      //     p.deliveredDate?.getDate();
+      //   p.cancelledDate =
+      //     p.cancelledDate?.toLocaleString("default", { month: "short" }) +
+      //     " " +
+      //     p.cancelledDate?.getDate();
+      //   p.cancelledbyadminDate =
+      //     p.cancelledbyadminDate?.toLocaleString("default", {
+      //       month: "short",
+      //     }) +
+      //     " " +
+      //     p.cancelledbyadminDate?.getDate();
 
-        p.returnRequestDate =
-          p.returnRequestDate?.toLocaleString("default", { month: "short" }) +
-          " " +
-          p.returnRequestDate?.getDate();
-        p.returnApprovedDate =
-          p.returnApprovedDate?.toLocaleString("default", { month: "short" }) +
-          " " +
-          p.returnApprovedDate?.getDate();
-        p.returnPickupedDate =
-          p.returnPickupedDate?.toLocaleString("default", { month: "short" }) +
-          " " +
-          p.returnPickupedDate?.getDate();
-        p.refundDoneDate =
-          p.refundDoneDate?.toLocaleString("default", { month: "short" }) +
-          " " +
-          p.refundDoneDate?.getDate();
-        p.returnCancelledByAdminDate =
-          p.returnCancelledByAdminDate?.toLocaleString("default", {
-            month: "short",
-          }) +
-          " " +
-          p.returnCancelledByAdminDate?.getDate();
-        p.returnCancelledDate =
-          p.returnCancelledDate?.toLocaleString("default", { month: "short" }) +
-          " " +
-          p.returnCancelledDate?.getDate();
-      }
+      //   p.returnRequestDate =
+      //     p.returnRequestDate?.toLocaleString("default", { month: "short" }) +
+      //     " " +
+      //     p.returnRequestDate?.getDate();
+      //   p.returnApprovedDate =
+      //     p.returnApprovedDate?.toLocaleString("default", { month: "short" }) +
+      //     " " +
+      //     p.returnApprovedDate?.getDate();
+      //   p.returnPickupedDate =
+      //     p.returnPickupedDate?.toLocaleString("default", { month: "short" }) +
+      //     " " +
+      //     p.returnPickupedDate?.getDate();
+      //   p.refundDoneDate =
+      //     p.refundDoneDate?.toLocaleString("default", { month: "short" }) +
+      //     " " +
+      //     p.refundDoneDate?.getDate();
+      //   p.returnCancelledByAdminDate =
+      //     p.returnCancelledByAdminDate?.toLocaleString("default", {
+      //       month: "short",
+      //     }) +
+      //     " " +
+      //     p.returnCancelledByAdminDate?.getDate();
+      //   p.returnCancelledDate =
+      //     p.returnCancelledDate?.toLocaleString("default", { month: "short" }) +
+      //     " " +
+      //     p.returnCancelledDate?.getDate();
+      // }
 
       res.render("user/orderDetails", {
         user,
