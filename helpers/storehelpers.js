@@ -248,6 +248,7 @@ module.exports = {
   updateProfilePicture: (id, dp) => {
     return new Promise(async (resolve, reject) => {
             const user=await User.findById(id)
+            if(user.dp.filename)
             await cloudinary.uploader.destroy(user.dp.filename)
             const profilePicture = await User.findByIdAndUpdate(id, { dp: { url: dp.path, filename: dp.filename } }, { new: true }).then((data) => {
                 resolve(data);
