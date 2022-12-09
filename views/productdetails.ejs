@@ -458,7 +458,11 @@ right: 0px;
                 
                 <div class="card">
                   <div class="d-flex justify-content-center">
+              <%if(p.stock==0){%>
+
                 <div class="badge badges"><h6>Currently Unavailable</h6></div>
+                <%}%>
+
 
                   <img class="card-img" src="<%-p.images[0].url%>" alt="Vans" style="width: 155px; height:200px">
       

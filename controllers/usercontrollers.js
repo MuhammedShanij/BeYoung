@@ -132,6 +132,8 @@ module.exports = {
               res.render("otp-Verification", { phno: req.body.phno, user: false });
             })
             .catch((err) => {
+              console.log(err)
+              res.send("twilio error")
             });
         }
       });
