@@ -320,9 +320,9 @@ right: 0px;
 
                               <div class="bg-white rounded shadow-sm p-4 mb-4 restaurant-detailed-ratings-and-reviews">
                                   <!-- <a href="#" class="btn btn-outline-primary btn-sm float-right">Top Rated</a> -->
-                                  <h5 class="mb-1">All Ratings and Reviews</h5>
+                                  <h5 class="mb-2 text-center">All Ratings and Reviews</h5>
         <% for(let i=0;i< reviewCount ;i++){%>
-
+<hr>
                                   <div class="reviews-members pt-4 pb-4">
                                       <div class="media">
                                           <a href="#"><img alt="Generic placeholder image" src="http://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-pill"></a>
@@ -360,13 +360,12 @@ right: 0px;
                                           </div>
                                       </div>
                                   </div>
-                                  <hr>
                           <%}%> 
                           <%if(product.reviews.length>3){%>
 
+                            <hr>
 
-                                                                   <a class="text-center w-100 d-block mt-4 font-weight-bold" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">See All Reviews</a>
-
+                                                                   <a class="text-center w-100 d-block my-4 font-weight-bold" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">See All Reviews</a>
                                                                    <%}%> 
 
 
@@ -375,7 +374,7 @@ right: 0px;
                                                            
                                                            <div class="collapse" id="collapseExample">
         <% for(let i=3;i< product.reviews.length ;i++){%>
-                                                              
+          <hr>                          
                                   <div class="reviews-members pt-4 pb-4">
                                     <div class="media">
                                         <a href="#"><img alt="Generic placeholder image" src="http://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-pill"></a>
@@ -411,7 +410,7 @@ right: 0px;
                                         </div>
                                     </div>
                                 </div>
-                                <hr>
+                                
                           <%}%> 
 
                                                              </div>

@@ -270,6 +270,8 @@ module.exports = {
 
       if(product.reviews.length>0 &&product.reviews.length<4 )
       reviewCount=product.reviews.length
+      if(product.reviews.length>3 )
+      reviewCount=3
       res.render("productdetails", {
         product,
         category,
