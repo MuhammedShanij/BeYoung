@@ -188,10 +188,16 @@ right: 0px;
                                                    <%}%> 
                                         <!-- </form> -->
                                         <%}else{%>
+                                          <%if(inCart==null){%>
                                             <a href="/addtoGuestCart/<%-product._id%>">
                                                 <button
                                                 class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
-                                            </a>                                        
+                                            </a>        
+                                            <%}else{%>
+                                              <a href="/guestCart">
+                                                  <button
+                                                 class="btn btn-danger text-uppercase mr-2 px-4" type="submit">Go TO Cart</button></a>
+                                                 <%}%>                                 
                                             <%}%> 
                                             <%}%> 
                                             <%if(user){%>
@@ -315,7 +321,7 @@ right: 0px;
                               <div class="bg-white rounded shadow-sm p-4 mb-4 restaurant-detailed-ratings-and-reviews">
                                   <!-- <a href="#" class="btn btn-outline-primary btn-sm float-right">Top Rated</a> -->
                                   <h5 class="mb-1">All Ratings and Reviews</h5>
-        <% for(let i=0;i< 3 ;i++){%>
+        <% for(let i=0;i< reviewCount ;i++){%>
 
                                   <div class="reviews-members pt-4 pb-4">
                                       <div class="media">
@@ -356,9 +362,12 @@ right: 0px;
                                   </div>
                                   <hr>
                           <%}%> 
+                          <%if(product.reviews.length>3){%>
+
 
                                                                    <a class="text-center w-100 d-block mt-4 font-weight-bold" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">See All Reviews</a>
 
+                                                                   <%}%> 
 
 
 

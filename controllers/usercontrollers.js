@@ -245,6 +245,7 @@ module.exports = {
       const user = req.session.user;
       let inWishlist = null;
       let inCart = null;
+      let reviewCount=0
 
       let cartCount = 0;
       if (user) {
@@ -263,6 +264,12 @@ module.exports = {
         let userdetails = await userhelper.getUserById(user._id);
         await userhelper.allInWishlist(userdetails, products);
       }
+      let guestExist = await carthelper.guestExist(req.session.id);
+      if(guestExist)
+      inCart = await carthelper.checkGuestCart(req.session.id,id);
+
+      if(product.reviews.length>0 &&product.reviews.length<4 )
+      reviewCount=product.reviews.length
       res.render("productdetails", {
         product,
         category,
@@ -271,6 +278,7 @@ module.exports = {
         cartCount,
         inCart,
         products,
+        reviewCount
       });
     } catch  {
       res.redirect("/error");
@@ -673,7 +681,7 @@ module.exports = {
       
       let userId = req.session.id;
       carthelper.doAddproductsToGuestCart(userId, prodId).then((response) => {
-        res.redirect("/guestCart");
+        res.redirect(`/productview/${prodId}`);
       });
     } catch  {
       res.redirect("/error");

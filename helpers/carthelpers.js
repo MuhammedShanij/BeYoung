@@ -1131,5 +1131,11 @@ changeOrderStatus : (details)=>{
             const inWishlist=await Cart.findOne({$and:[{user_id:userId},{'products.item':id}]})
             resolve(inWishlist)      
         })
+      },
+      checkGuestCart:(userId,id)=>{
+        return new Promise(async(resolve,reject)=>{  
+            const inWishlist=await Guest.findOne({$and:[{user:userId},{'products.item':id}]})
+            resolve(inWishlist)      
+        })
       }
-}
+} 
